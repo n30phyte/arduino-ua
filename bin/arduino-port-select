@@ -16,6 +16,9 @@ rm -f "$PORT_LCK_0"
 rm -f "$PORT_CONFIG_1"
 rm -f "$PORT_LCK_1"
 
+# Moved nullglob to make stuff cleaner
+shopt -s nullglob
+
 if [ `uname -s` == 'Darwin' ]
 then
     export PORTS='/dev/tty.usbmodem* /dev/tty.usbserial*'
@@ -24,8 +27,7 @@ else
 fi
 
 
-# bash has a nullglob option so that no match returns '' not the pattern, cool!
-if test -n "$(shopt -s nullglob; echo $PORTS)"
+if test -n "$(echo $PORTS)"
 then
     echo Found devices: $PORTS
 else
