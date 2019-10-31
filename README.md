@@ -5,6 +5,7 @@ A modified version of arduino-ua for CMPUT 274/275 that works better ~~with Fedo
 ## Changes / Fixes
 
 - Added /dev/ttyUSB* detection into port select
+  - Cheap Chinese arduino lite compatibility
 - Made makefile actually use selected port
 - Fixed problems when using newer Arduino IDE version
 - Make sure that code gets compiled with gnu++98, following older version bundled in 18.04.
