@@ -63,7 +63,7 @@ pu lock             $LOCK_DIR
 pu baudrate         9600
 pu rtscts           No
 EOF
-    cat "$PORT_CONFIG_0" > "$MINICOM_CONFIG_DFL"
+    cat "$MINICOM_CONFIG_0" > "$MINICOM_CONFIG_DFL"
     break
     done
 
