@@ -53,15 +53,14 @@ ifndef USER_LIB_PATH
 USER_LIB_PATH = $(ARDUINO_UA_DIR)/libraries
 endif
 
-# Default install location of Arduino Makefile
-include /usr/share/arduino/Arduino.mk
-
-
 $(HOME)/.arduino_port_0:
 	$(ARDUINO_UA_DIR)/bin/arduino-port-select
 
 $(HOME)/.arduino_port_1:
 	$$(ARDUINO_UA_DIR)/bin/arduino-port-select
+
+# Default install location of Arduino Makefile
+include /usr/share/arduino/Arduino.mk
 
 ifndef ARD_PORT_0
 	RD_PORT_0    = $(shell [ -e $(HOME)/.arduino_port_0 ] && cat $(HOME)/.arduino_port_0)
