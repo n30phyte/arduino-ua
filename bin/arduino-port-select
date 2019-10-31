@@ -20,7 +20,7 @@ if [ `uname -s` == 'Darwin' ]
 then
     export PORTS='/dev/tty.usbmodem* /dev/tty.usbserial*'
 else
-    export PORTS='/dev/ttyACM*'
+    export PORTS='/dev/ttyACM* /dev/ttyUSB*'
 fi
 
 
