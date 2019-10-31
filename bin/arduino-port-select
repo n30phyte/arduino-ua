@@ -3,7 +3,7 @@
 
 export PORT_CONFIG_0="$HOME/.arduino_port_0"
 export PORT_CONFIG_1="$HOME/.arduino_port_1"
-export LOCK_DIR="/tmp"
+export LOCK_DIR="/var/lock/lockdev"
 export PORT_LCK_0="$HOME/.arduino_port_lck_0"
 export PORT_LCK_1="$HOME/.arduino_port_lck_1"
 export MINICOM_CONFIG_0="$HOME/.minirc.0"
