@@ -1,5 +1,5 @@
 ######################################################
-# Arduino UA Child Makefile (UPDATED: 31/07/2017)
+# Arduino UA Child Makefile (UPDATED: 31/10/2019)
 #
 # This Makefile hooks into the unofficial Arduino Makefile (https://www.github.com/sudar/Arduino-Makefile)
 # installed which is instaled through the package manager. It sets the default preferences for this VM as well
@@ -34,10 +34,11 @@ endif
 
 # Board Model Tag and subtag
 ifeq ($(shell expr $(ARDUINO_VERSION) '>' 150), 1)
+	# Newer Arduino IDEs default to gnu++11
+	# Needs BOARD_SUB too.
 	BOARD_TAG = mega
 	BOARD_SUB = atmega2560
 	CXXFLAGS_STD = -std=gnu++98
-
 else
 	BOARD_TAG = mega2560
 endif
