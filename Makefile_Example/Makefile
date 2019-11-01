@@ -63,7 +63,7 @@ $(HOME)/.arduino_port_1:
 include /usr/share/arduino/Arduino.mk
 
 ifndef ARD_PORT_0
-	RD_PORT_0    = $(shell [ -e $(HOME)/.arduino_port_0 ] && cat $(HOME)/.arduino_port_0)
+	ARD_PORT_0    = $(shell [ -e $(HOME)/.arduino_port_0 ] && cat $(HOME)/.arduino_port_0)
 	ARD_PORT_LCK_0    = $(shell [ -e $(HOME)/.arduino_port_lck_0 ] && cat $(HOME)/.arduino_port_lck_0)
 endif
 
@@ -84,8 +84,6 @@ upload_1_set:
 upload_check:
 		test -e $(ARD_PORT) || ( echo -e "ERROR: upload port $(ARD_PORT) does not exist, check that arduino is connected'\n\n" && false )
 		test ! -e $(ARD_PORT_LCK) || ( echo -e "ERROR: serial-mon may be running with $(ARD_PORT) locked. Check if there is a lockfile 'ls $(ARD_PORT_LCK)', and IF YOU ARE SURE THAT NO serial-mon is running, then it is safe to 'rm $(ARD_PORT_LCK)' \n\n" && false )
-
-upload: upload-0
 
 # Upload to Arduino port 0
 upload-0:	$(HOME)/.arduino_port_0 upload_0_set upload_check
