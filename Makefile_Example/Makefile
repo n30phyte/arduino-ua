@@ -53,15 +53,6 @@ ifndef USER_LIB_PATH
 USER_LIB_PATH = $(ARDUINO_UA_DIR)/libraries
 endif
 
-$(HOME)/.arduino_port_0:
-	$(ARDUINO_UA_DIR)/bin/arduino-port-select
-
-$(HOME)/.arduino_port_1:
-	$$(ARDUINO_UA_DIR)/bin/arduino-port-select
-
-# Default install location of Arduino Makefile
-include /usr/share/arduino/Arduino.mk
-
 ifndef ARD_PORT_0
 	ARD_PORT_0    = $(shell [ -e $(HOME)/.arduino_port_0 ] && cat $(HOME)/.arduino_port_0)
 	ARD_PORT_LCK_0    = $(shell [ -e $(HOME)/.arduino_port_lck_0 ] && cat $(HOME)/.arduino_port_lck_0)
@@ -71,6 +62,15 @@ ifndef ARD_PORT_1
 	ARD_PORT_1    = $(shell [ -e $(HOME)/.arduino_port_1 ] && cat $(HOME)/.arduino_port_1)
 	ARD_PORT_LCK_1    = $(shell [ -e $(HOME)/.arduino_port_lck_1 ] && cat $(HOME)/.arduino_port_lck_1)
 endif
+
+# Default install location of Arduino Makefile
+include /usr/share/arduino/Arduino.mk
+
+$(HOME)/.arduino_port_0:
+	$(ARDUINO_UA_DIR)/bin/arduino-port-select
+
+$(HOME)/.arduino_port_1:
+	$$(ARDUINO_UA_DIR)/bin/arduino-port-select
 
 # check for presence of lock file and bail
 upload_0_set:
@@ -109,4 +109,3 @@ serial-1:	$(HOME)/.arduino_port_1 upload_1_set upload_check
 
 check-hex: $(TARGET_HEX)
 	$(ARDUINO_UA_DIR)/bin/check-hex-file $(TARGET_HEX)
-
