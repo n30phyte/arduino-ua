@@ -38,7 +38,7 @@ ifeq ($(shell expr $(ARDUINO_VERSION) '>' 150), 1)
 	# Needs BOARD_SUB too.
 	BOARD_TAG = mega
 	BOARD_SUB = atmega2560
-	CXXFLAGS_STD = -std=gnu++98
+	CXXFLAGS_STD = -std=c++11
 else
 	BOARD_TAG = mega2560
 endif
